@@ -1,0 +1,12 @@
+- get all blog posts
+- get specific blog post (by id)
+- get all blog posts that have 'React' in the title
+- get all blog posts and order by date
+- create a new blog post
+- update a blog post
+- delete a blog post 
+- get all authors
+- get all authors sorted alphabetically  
+- get specific author (by id)
+- get all comments
+- get specific comment (by id)
