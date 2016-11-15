@@ -13,96 +13,14 @@ const db = mongoose.connection;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/api/posts', (req, res) => {
-  Post.find({}, (err, data) => {
-    if(err) console.log(err);
-    else res.send(data);
-  })
-});
-
-app.get('/api/posts/:id', (req, res) => {
-  Post.findById(req.params.id)
-  .populate('author')
-  .exec((err, data) => {
-    if(err) console.log(err);
-    else res.send(data);
-  })
-});
-
-app.get('/api/posts/sort/by-date', (req, res) => {
-  Post.find({})
-  .sort({date: 'desc'})
-  .exec((err, data) => {
-    if(err) console.log(err);
-    else res.send(data);
-  })
-});
-
-app.get('/api/posts/sort/a-z', (req, res) => {
-  Post.find({})
-  .sort({title: 'desc'})
-  .exec((err, data) => {
-    if(err) console.log(err);
-    else res.send(data);
-  })
-});
-
-app.get('/api/authors', (req, res) => {
-  Author.find({}, (err, data) => {
-    if(err) console.log(err);
-    else res.send(data);
-  })
-});
-
-app.get('/api/authors/sort/a-z', (req, res) => {
-  Author.find({})
-  .sort({title: 'desc'})
-  .exec((err, data) => {
-    if(err) console.log(err);
-    else res.send(data);
-  })
-});
-
-app.get('/api/authors/:id', (req, res) => {
-  Author.findById(req.params.id)
-  .populate('author')
-  .exec((err, data) => {
-    if(err) console.log(err);
-    else res.send(data);
-  })
-});
-
-app.get('/api/posts-with-authors', (req, res) => {
-  Post.find({})
-  .populate('author')
-  .exec((err, data) => {
-    if(err) console.log(err);
-    else res.send(data);
-  })
-});
+//////////
+//Your code here:
+//////////
 
 
-app.get('/api/posts/tags/react', (req, res) => {
-  Post.find({tags: 'react'})
-  .exec((err, data) => {
-    if(err) console.log(err);
-    else res.send(data);
-  })
-});
 
-app.delete('/api/posts/:id', (req, res) => {
-  Post.remove({_id: req.params.id}, (err, data) => {
-    if(err) console.log(err);
-    else res.send(data);
-  })
-});
 
-app.put('/api/posts/:id', (req, res) => {
-  Post.findOneAndUpdate({_id: req.params.id}, req.body, (err, data) => {
-    if(err) console.log(err);
-    else res.send(data);
-  })
-});
+
 
 db.on('open', () => {
   console.log('db connection opened!');
