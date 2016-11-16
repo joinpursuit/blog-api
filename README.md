@@ -1,5 +1,5 @@
 # Blog API 
-## Setup
+## Setup s
 - fork and clone this repo
 - npm install
 - run `node seed.js` from the command line to setup your database (you'll need to have `mongod` running in the background)
