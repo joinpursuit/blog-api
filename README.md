@@ -35,3 +35,4 @@ Create an api with the following endpoints:
   - [Express Router Docs](http://expressjs.com/en/api.html#router)
   - [Learn to Use Express Router](https://scotch.io/tutorials/learn-to-use-the-new-router-in-expressjs-4)
 - Create a 'tag search' field. add an index.html file with a text input box. When you type something into the input box and hit 'Submit', your API should search all your posts for any posts that have a tag that matches the input text
+-  create a 'text search' field. add an index.html file with a text input box. When you type something into the input box and hit 'Submit', your API should search all your posts' bodies for any posts that contain the search word anywhere in their body. In other words, if you type in 'JavaScript' your should get a response will all posts that contain the word 'JavaScript' anywhere in the body
