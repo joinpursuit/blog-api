@@ -27,6 +27,8 @@ db.on('open', () => {
   app.use("/api/posts", routes.posts);
 
   app.use('/api/authors', routes.authors);
+
+  app.use('/api', routes.posts);
   //////
 
   app.listen(4321, () => {
