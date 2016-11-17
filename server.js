@@ -3,9 +3,6 @@ const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
-const models = require('./models');
-const Post = models.Post;
-const Author = models.Author;
 
 mongoose.connect('mongodb://localhost/blog-api');
 
@@ -17,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Your code here:
 //////////
 
-
+app.use('/api', require('./router'));
 
 
 
