@@ -3,9 +3,10 @@ const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
-const models = require('./models');
-const Post = models.Post;
-const Author = models.Author;
+//const models = require('./models'); //something in nodeJS allows to read index.js
+//const Post = models.Post;
+//const Author = models.Author;
+//const router = require('./router'); //reads index.js
 
 mongoose.connect('mongodb://localhost/blog-api');
 
@@ -17,7 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Your code here:
 //////////
 
-
+app.use('/api', require('./router'))
+//when the url /api, send it to ROUTER to handle it (middleware)
 
 
 
