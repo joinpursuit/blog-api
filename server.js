@@ -15,15 +15,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //////////
 //Your code here:
+
 //////////
-
-
-
-
-
+const routes = require("./routes/index.js").routes;
+//////////
 
 db.on('open', () => {
   console.log('db connection opened!');
+
+  /////
+  app.use("/api/posts", routes.posts);
+
+  app.use('/api/authors', routes.authors);
+  //////
+
   app.listen(4321, () => {
     console.log('Listening on port 4321!');
   });
