@@ -1,29 +1,24 @@
+//module imports
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
-const models = require('./models');
-const Post = models.Post;
-const Author = models.Author;
+
+//file imports
+const models = require('./index').models
+const router = require('./index').routes
+
+const app = express();
 
 mongoose.connect('mongodb://localhost/blog-api');
 
 const db = mongoose.connection;
 
-app.use(bodyParser.urlencoded({ extended: true }));
-
-//////////
-//Your code here:
-//////////
-
-
-
-
-
-
 db.on('open', () => {
   console.log('db connection opened!');
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(express.static('bundle'));
+  app.use('/', router);
   app.listen(4321, () => {
     console.log('Listening on port 4321!');
   });
