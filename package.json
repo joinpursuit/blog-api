@@ -13,6 +13,8 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "mongoose": "^4.6.7"
+    "mongodb": "^2.2.11",
+    "mongoose": "^4.6.8",
+    "webpack": "^1.13.3"
   }
 }

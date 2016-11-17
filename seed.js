@@ -18,6 +18,7 @@ const posts = [
   {title: 'Realtime web with Socket.io and React', body: 'Info on how to get started with Socket.io and React', tags: ['react', 'javascript', 'frontend', 'socket.io']},
   {title: 'JavaScript on the backend with Node js', body: 'Node is a whole new world for JavaScript', tags: ['javascript', 'backend']},
   {title: 'Intro to JavaScript', body: 'Getting started with JavaScript', tags: ['javascript']},
+  {title: 'test', body: 'Mel & Vane', tags: ['javascript']},
 ];
 
 const authors = [
