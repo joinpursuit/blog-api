@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const postSchema = mongoose.Schema({
   title: {type: String, required: true},
   body: {type: String, required: true},
@@ -8,3 +9,4 @@ const postSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model('Post', postSchema);
+// mongoose.model('Post', postSchema);
