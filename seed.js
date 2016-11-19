@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/blog-api');
 const db = mongoose.connection;
-const models = require('./models');
+const models = require('./index').models;
 const Post = models.Post;
 const Author = models.Author;
 
@@ -17,7 +17,7 @@ const posts = [
   {title: 'Building an Express, React, Mongo, Node App', body: 'Heres a guide on getting your fullstack JavaScript app up and running', tags: ['javascript', 'fullstack']},
   {title: 'Realtime web with Socket.io and React', body: 'Info on how to get started with Socket.io and React', tags: ['react', 'javascript', 'frontend', 'socket.io']},
   {title: 'JavaScript on the backend with Node js', body: 'Node is a whole new world for JavaScript', tags: ['javascript', 'backend']},
-  {title: 'Intro to JavaScript', body: 'Getting started with JavaScript', tags: ['javascript']},
+  {title: 'Intro to JavaScript', body: 'Getting started with JavaScript', tags: ['javascript']}
 ];
 
 const authors = [
@@ -25,11 +25,11 @@ const authors = [
   {name: 'Von Burgandy'},
   {name: 'LeBron Bryant'},
   {name: 'Leslie Swanson'},
-  {name: 'Quatro Quatro'},
+  {name: 'Quatro Quatro'}
 ]
 
-//First create authors
-//Then take random author IDs, add them to posts, and create posts
+// First create authors
+// Then take random author IDs, add them to posts, and create posts
 db.on('open', () => {
   Author.create(authors, (err, data) => {
     const randomlyAddAuthorsToPosts = posts.map((post, indx) => Object.assign(post, {author: data[Math.floor(Math.random() * data.length)]._id}));
