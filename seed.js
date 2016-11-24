@@ -1,13 +1,18 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/blog-api');
 const db = mongoose.connection;
-const models = require('./models');
+const models = require('./models/index.js');
 const Post = models.Post;
 const Author = models.Author;
 
 const posts = [
-  {title: 'React is Awesome', body: 'React is the best. Heres why...', tags: ['react', 'javascript', 'frontend']},
-  {title: 'jQuery 4ever', body: 'You think React is great? Heres why jQuery is all you need...', tags: ['react', 'javascript', 'jquery', 'frontend']},
+  {
+    title: 'aaaaaa React is Awesome',
+    body: 'React is the best. Heres why...', 
+    tags: ['react', 'javascript', 'frontend'],
+    date: "09-11-2016"
+  },
+  {title: 'jQuery 4ever', body: 'You think React is great? Heres why jQuery is all you need...', tags: ['react', 'javascript', 'jquery', 'frontend'],date: "10-11-2016"},
   {title: 'The DOM Rocks', body: 'Heres why the DOM is better than React and jQuery combined', tags: ['DOM', 'javascript', 'frontend']},
   {title: 'Angular > Everything', body: 'Angular is the best framework for me...', tags: ['angular', 'javascript', 'frontend']},
   {title: 'React is the Future', body: 'Ten reasons why React is the future of JavaScript frameworks', tags: ['react', 'javascript', 'frontend']},
@@ -32,9 +37,15 @@ const authors = [
 //Then take random author IDs, add them to posts, and create posts
 db.on('open', () => {
   Author.create(authors, (err, data) => {
-    const randomlyAddAuthorsToPosts = posts.map((post, indx) => Object.assign(post, {author: data[Math.floor(Math.random() * data.length)]._id}));
+    console.log(data.length)
+
+    const randomAuthorsPostsArr = posts.map((post, indx) => 
+      Object.assign(post, {
+        author: data[Math.floor(Math.random() * data.length)]._id
+    }));
+
     if(err) console.log('Author Err!', err);
-    else Post.create(randomlyAddAuthorsToPosts, (err, data) => {
+    else Post.create(randomAuthorsPostsArr, (err, data) => {
         if(err) console.log('Author Err!', err);
         else {
           console.log('Posts created!', data);

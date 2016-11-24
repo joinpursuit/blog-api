@@ -1,5 +1,8 @@
 # Blog API 
-## Setup
+## Personal Notes:
+The app is using mongo, mongoose, express, nodemon..
+The structure of this project follows 'Charles' way which is a bit more organize and difficul but for bigger projects might be better. The app starts with server.js, checks app.use('/api', Router) goes to Router folder/index.js. Index.js manage router in this case author & post. Post goes to post-router and if ULR is '/' get all posts and so on.
+## Setup s
 - fork and clone this repo
 - npm install
 - run `node seed.js` from the command line to setup your database (you'll need to have `mongod` running in the background)
